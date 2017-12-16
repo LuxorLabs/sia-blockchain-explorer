@@ -1,0 +1,85 @@
+.Wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.TextField {
+  width: 100%;
+  height: sg-layout-height(form-input);
+  padding: sg-spacing(tightest) sg-spacing(tighter);
+  border: 0.1rem solid sg-color(sky, dark);
+  border-radius: sg-radius(loose);
+  font-size: sg-font-size();
+  background-color: sg-color(white);
+  box-shadow: inset 0 0 0 0.2rem rgba(sg-color(indigo), 0),
+    inset 0 0.1rem 0.2rem 0 rgba(sg-color(ink, lighter), 0.2);
+  transition-property: border-color, box-shadow;
+  transition-duration: sg-duration();
+  transition-timing-function: sg-easing();
+  color: sg-color(ink, dark);
+
+  &[type='search'] {
+    appearance: none;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: transparent;
+    box-shadow: inset 0 0 0 0.2rem rgba(sg-color(indigo), 1),
+      inset 0 0.1rem 2rem 0 rgba(sg-color(ink, lighter), 0.2);
+  }
+}
+
+.Icon {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  pointer-events: none;
+}
+
+.ClearButton {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  border-radius: 100%;
+  opacity: 0.67;
+  background: sg-color(ink, lightest);
+  background-clip: content-box;
+  text-align: center;
+  cursor: pointer;
+  transition: sg-duration() sg-easing() opacity;
+
+  div {
+    margin: 0 auto;
+  }
+
+  svg {
+    fill: sg-color(white);
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.SearchField {
+  height: 3.5rem;
+  padding-right: sg-spacing(tight);
+  padding-left: sg-spacing();
+  font-size: 1.4rem;
+
+  @media only screen and (max-width: sg-breakpoint()) {
+    font-size: 1.6rem;
+  }
+}
+
+.sizeSmall {
+  @media only screen and (min-width: sg-breakpoint(landscape, '720p')) {
+    height: sg-layout-height(form-input, small);
+  }
+}

@@ -1,0 +1,240 @@
+$content-z-index: sg-z-index(surface);
+$mobile-header-height: 6.7rem;
+$header-footer-height: 4.6rem;
+
+.Wrapper {
+  overflow: hidden;
+
+  @media only screen and (max-width: sg-breakpoint()) {
+    position: fixed;
+    z-index: $content-z-index;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    background: sg-color(white);
+  }
+}
+
+.WrapperVisibleMobile {
+  @media only screen and (max-width: sg-breakpoint()) {
+    display: block;
+  }
+}
+
+.SearchInput {
+  position: relative;
+  z-index: $content-z-index;
+  margin-top: 4.4rem;
+
+  @media only screen and (max-width: sg-breakpoint()) {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 0;
+    padding: sg-spacing(tighter) sg-spacing(tight);
+    border-bottom: solid 1px sg-color(sky);
+    background: sg-color(sky, light);
+  }
+}
+
+.CancelButton {
+  display: none;
+  font-size: 1.3rem;
+
+  @media only screen and (max-width: sg-breakpoint()) {
+    display: inline-block;
+    width: 5rem;
+    margin-left: sg-spacing(tighter);
+    color: sg-color(blue);
+  }
+}
+
+.SearchBox {
+  position: absolute;
+  z-index: $content-z-index;
+  right: -1.2rem;
+  overflow: hidden;
+  width: 54rem;
+  margin-top: sg-spacing(tightest);
+  border-radius: 0.6rem;
+  background: sg-color(white);
+  box-shadow: 0 1rem 6rem rgba(0, 0, 0, 0.18), 0 0.3rem 1rem rgba(0, 0, 0, 0.17);
+
+  @media only screen and (max-width: sg-breakpoint()) {
+    right: 0;
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    border-radius: 0;
+  }
+}
+
+.HeaderList,
+.Footer {
+  display: flex;
+  align-items: center;
+  height: $header-footer-height;
+  padding-right: sg-spacing(tight);
+  padding-left: sg-spacing(tight);
+}
+
+.HeaderList {
+  border-bottom: solid 1px sg-color(sky);
+  font-size: 1.2rem;
+  color: sg-color(ink, lighter);
+
+  li {
+    &::after {
+      content: '|';
+      margin: 0 sg-spacing(tighter);
+      opacity: 0.4;
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: sg-breakpoint()) {
+    display: none;
+  }
+}
+
+.Footer {
+  position: relative;
+  justify-content: flex-end;
+
+  a {
+    opacity: 0.8;
+    transition: opacity sg-duration() sg-easing();
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 100%;
+    left: 0;
+    height: sg-spacing(tightest);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    pointer-events: none;
+  }
+
+  @media only screen and (max-width: sg-breakpoint()) {
+    display: none;
+  }
+}
+
+.CategoryHeading {
+  position: relative;
+  z-index: 1;
+  padding: sg-spacing(tightest) sg-spacing(tight);
+  border-top: solid 1px sg-color(sky);
+  border-bottom: solid 1px sg-color(sky);
+  background: sg-color(sky, light);
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  @media only screen and (max-width: sg-breakpoint()) {
+    position: sticky;
+    top: -1px;
+  }
+}
+
+.ResultsGroup:first-child .CategoryHeading {
+  top: 0;
+  border-top: none;
+}
+
+.ResultsWrapper {
+  position: relative;
+  max-height: 60vh;
+  overflow-y: scroll;
+  // Enable momentum scrolling on iOS
+  -webkit-overflow-scrolling: touch;
+
+  @media only screen and (max-width: sg-breakpoint()) {
+    max-height: calc(100vh - #{$mobile-header-height});
+  }
+}
+
+.ResultsGroup li:last-child .Result {
+  border-bottom: 0;
+}
+
+.ResultsGroup:last-child li:last-child .Result::before {
+  bottom: 0;
+}
+
+.Result,
+.Message {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: sg-spacing(tighter) sg-spacing(tight);
+  border-bottom: solid 1px sg-color(sky);
+  font-size: 1.6rem;
+  color: sg-color(ink);
+  transition: background 0.1s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    left: -4px;
+    width: 4px;
+    background: sg-color(indigo);
+    transition: transform 0.1s ease;
+  }
+
+  &.ResultActive {
+    @media only screen and (min-width: sg-breakpoint()) {
+      background: sg-color(sky, light);
+
+      &::before {
+        transform: translateX(4px);
+      }
+    }
+  }
+}
+
+// Prevent an issue where hovering (performed via JS)
+// wouldn’t work when user hovers a child element instead of the result itself
+.Result * {
+  pointer-events: none;
+}
+
+.ResultSubline,
+.MessageTitle + .MessageSubline {
+  margin-top: 0.4rem;
+}
+
+.ResultSubline,
+.MessageSubline {
+  font-size: 1.4rem;
+  color: sg-color(ink, lighter);
+  line-height: 1.5;
+}
+
+.Message {
+  border: none;
+
+  &:hover {
+    background: transparent;
+  }
+
+  &::before {
+    display: none;
+  }
+}
