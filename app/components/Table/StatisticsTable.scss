@@ -19,7 +19,8 @@
     background-color: sg-color(sky, lighter);
   }
 
-  tr {
+  tr,
+  tr:last-child {
     border-top: 1px solid sg-color(sky, base);
     border-left: 1px solid sg-color(sky, base);
     border-right: 1px solid sg-color(sky, base);

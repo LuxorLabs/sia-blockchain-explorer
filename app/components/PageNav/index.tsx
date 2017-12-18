@@ -98,7 +98,6 @@ class PageNav extends React.Component<Props & BreakpointContext, State> {
 
         <GlobalSearch showMobile={this.state.showSearch} onClose={this.onSearchClose} />
 
-        <Activator toggled={opened} onClick={this.toggleOpenedState} />
         <button
           className={styles.SearchActivator}
           onClick={this.showSearch}

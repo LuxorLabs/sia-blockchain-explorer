@@ -73,9 +73,9 @@ class Home extends React.Component {
       }
     })
     return {
-      fc: fc.splice(0, 6),
-      sco: sco.splice(0, 6),
-      sfo: sfo.splice(0, 6)
+      fc: fc.splice(0, 10),
+      sco: sco.splice(0, 10),
+      sfo: sfo.splice(0, 10)
     }
   }
   public render() {
@@ -103,8 +103,8 @@ class Home extends React.Component {
             <TypeHeading level={3}>Welcome to the Sia Explorer</TypeHeading>
             {blockheight}
             <div className={styles.Stat}>
-              <StatList title="File Contracts" items={fc} />
-              <StatList key={2} title="Siacoin Transactions" items={sco} />
+              <StatList title="Latest 10 File Contracts" items={fc} />
+              <StatList key={2} title="Latest 10 Siacoin Transactions" items={sco} />
             </div>
           </Card.Section>
         </Card>

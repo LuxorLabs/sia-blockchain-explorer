@@ -385,6 +385,14 @@ class DetailedStatistics extends React.Component<
           const walletTableData = this.unlockHashDataMap(wallet)
           cardTitle = 'Wallet Address'
           hashID = this.props.match.params.hash
+          cardSection = (
+            <Card.Section>
+              <Stack>
+                <Badge>{type}</Badge>
+                <Badge>Main Chain</Badge>
+              </Stack>
+            </Card.Section>
+          )
           renderMe = (
             <Card title={cardTitle}>
               <Card.Section>
@@ -409,6 +417,14 @@ class DetailedStatistics extends React.Component<
           const tsTableData: RowDataType[] = this.txDataMap(tx)
           cardTitle = 'Transaction ID'
           hashID = this.props.match.params.hash
+          cardSection = (
+            <Card.Section>
+              <Stack>
+                <Badge>{type}</Badge>
+                <Badge>Main Chain</Badge>
+              </Stack>
+            </Card.Section>
+          )
           renderMe = (
             <Card title={cardTitle}>
               <Card.Section>
@@ -433,6 +449,14 @@ class DetailedStatistics extends React.Component<
           const sfTableData: RowDataType[] = this.sfDataMap(sf)
           cardTitle = 'Siafund Output'
           hashID = this.props.match.params.hash
+          cardSection = (
+            <Card.Section>
+              <Stack>
+                <Badge>{type}</Badge>
+                <Badge>Main Chain</Badge>
+              </Stack>
+            </Card.Section>
+          )
           renderMe = (
             <Card title={cardTitle}>
               <Card.Section>
@@ -457,6 +481,14 @@ class DetailedStatistics extends React.Component<
           const scTableData: RowDataType[] = this.outputDataMap(sc)
           cardTitle = 'Siacoin Output'
           hashID = this.props.match.params.hash
+          cardSection = (
+            <Card.Section>
+              <Stack>
+                <Badge>{type}</Badge>
+                <Badge>Main Chain</Badge>
+              </Stack>
+            </Card.Section>
+          )
           renderMe = (
             <Card title={cardTitle}>
               <Card.Section>
@@ -480,6 +512,14 @@ class DetailedStatistics extends React.Component<
           const fc = transactions[0]
           // FIX ME
           const fcTableData: RowDataType[] = this.txDataMap(fc)
+          cardSection = (
+            <Card.Section>
+              <Stack>
+                <Badge>{type}</Badge>
+                <Badge>Main Chain</Badge>
+              </Stack>
+            </Card.Section>
+          )
           renderMe = (
             <Card.Section>
               <TypeHeading level={3}>File Contract Summary</TypeHeading>
@@ -535,7 +575,9 @@ class DetailedStatistics extends React.Component<
 
     return (
       <LayoutContainer>
-        <MainCard type="main">{renderMe}</MainCard>
+        <div className={styles.Main}>
+          <MainCard type="main">{renderMe}</MainCard>
+        </div>
       </LayoutContainer>
     )
   }
