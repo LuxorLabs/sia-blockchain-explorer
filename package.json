@@ -9,7 +9,8 @@
     "start:tunnel": "ENABLE_TUNNEL=true node server",
     "tslint": "tslint --project . --exclude build/**/* --exclude server/**/**/*",
     "dev": "cross-env NODE_ENV=development nodemon --watch server server",
-    "build": "rimraf ./build && cross-env NODE_ENV=production webpack --config webpack/webpack.prod.babel.js --color --progress --display-error-details --display-chunks",
+    "build":
+      "rimraf ./build && cross-env NODE_ENV=production webpack --config webpack/webpack.prod.babel.js --color --progress --display-error-details --display-chunks",
     "lint": "eslint js/**/*.js",
     "precommit": "lint-staged"
   },
@@ -96,7 +97,7 @@
     "moment": "^2.17.1",
     "node-cache": "4.1.1",
     "polished": "1.9.0",
-    "prepush": "npm run tslint && npm run tscheck",
+    // "prepush": "npm run tslint && npm run tscheck",
     "prop-types": "15.6.0",
     "ramda": "^0.24.1",
     "react": "^16.2.0",
@@ -115,9 +116,6 @@
     "whatwg-fetch": "^2.0.2"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{ts,tsx}": ["prettier --write", "git add"]
   }
 }
