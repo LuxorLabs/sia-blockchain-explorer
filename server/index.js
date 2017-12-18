@@ -38,30 +38,6 @@ const protocol = process.env.HTTPS === true ? 'https' : 'http'
 
 const DEFAULT_PORT = argv.port || process.env.PORT || 3000
 const isInteractive = process.stdout.isTTY
-if (isDev) {
-  detect(DEFAULT_PORT).then(port => {
-    if (port === DEFAULT_PORT) {
-      run(port)
-      return
-    }
-
-    if (isInteractive) {
-      const question = chalk.yellow(
-        `Something is already running on port ${DEFAULT_PORT}. Change ports?`
-      )
-
-      prompt(question, true).then(shouldChangePort => {
-        if (shouldChangePort) {
-          run(port)
-        }
-      })
-    } else {
-      console.log(chalk.red(`Something is already running on port ${DEFAULT_PORT}`))
-    }
-  })
-} else {
-  run(port)
-}
 
 // Start your app.
 const run = port => {
@@ -86,4 +62,29 @@ const run = port => {
       // openBrowser(protocol + '://' + prettyHost + ':' + port + '/')
     }
   })
+}
+
+if (isDev) {
+  detect(DEFAULT_PORT).then(port => {
+    if (port === DEFAULT_PORT) {
+      run(port)
+      return
+    }
+
+    if (isInteractive) {
+      const question = chalk.yellow(
+        `Something is already running on port ${DEFAULT_PORT}. Change ports?`
+      )
+
+      prompt(question, true).then(shouldChangePort => {
+        if (shouldChangePort) {
+          run(port)
+        }
+      })
+    } else {
+      console.log(chalk.red(`Something is already running on port ${DEFAULT_PORT}`))
+    }
+  })
+} else {
+  run(port)
 }
