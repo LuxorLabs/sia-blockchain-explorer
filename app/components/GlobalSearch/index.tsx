@@ -172,7 +172,7 @@ class GlobalSearch extends React.Component<Props, State> {
     }
   }
 
-  private validHash = input => /^[a-z]+$/i.test(input)
+  private validHash = input => /[a-z]/i.test(input)
 
   private doSearch = e => {
     const { onOpen, showMobile } = this.props
