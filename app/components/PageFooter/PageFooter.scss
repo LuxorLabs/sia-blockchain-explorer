@@ -1,0 +1,35 @@
+////
+/// PageFooter
+/// @group components/PageFooter/PageFooter
+////
+
+@import '../TypeContainer/TypeMixins';
+@import '../LayoutContainer/variables';
+
+.PageFooter {
+  @include layout-padding;
+  padding-top: sg-spacing();
+  padding-bottom: sg-spacing();
+
+  @media only screen and (min-width: sg-breakpoint(portrait, tablet)) {
+    height: sg-layout-height(page-footer);
+  }
+}
+
+.Content {
+  @media only screen and (max-width: sg-breakpoint(portrait, tablet) - 1px) {
+    &:first-child {
+      margin-bottom: sg-spacing();
+    }
+  }
+
+  @media only screen and (min-width: sg-breakpoint(portrait, tablet)) {
+    flex: 0 0 auto;
+
+    // ensure perfect alignment...
+    // wish I knew how to grab the LinkList component's className
+    &:first-child ul {
+      margin-top: 0;
+    }
+  }
+}

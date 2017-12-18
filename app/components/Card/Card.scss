@@ -1,0 +1,91 @@
+////
+/// Card
+/// @group components/Card/Card
+////
+
+@import '../LayoutContainer/variables';
+
+.Card {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  background-color: sg-color(white);
+}
+
+///
+/// Variants
+
+.typeHome {
+  @media only screen and (min-width: sg-rem-to-px(sg-layout-width(card-home))) {
+    overflow: hidden;
+    border-radius: sg-radius(loose);
+    box-shadow: sg-shadow();
+  }
+
+  .Section {
+    @include layout-padding;
+    padding-top: sg-spacing();
+    padding-bottom: sg-spacing(loose);
+
+    @media only screen and (min-width: sg-breakpoint()) {
+      padding-top: sg-spacing(loose);
+      padding-bottom: sg-spacing(looser);
+    }
+
+    @media only screen and (min-width: sg-breakpoint(portrait, '1080p')) {
+      padding-top: sg-spacing(looser);
+      padding-bottom: sg-spacing(loose);
+    }
+
+    @media only screen and (min-width: sg-breakpoint(portrait, 'imac')) {
+      padding-right: sg-spacing(fatter);
+      padding-left: sg-spacing(fatter);
+    }
+  }
+}
+
+.typeMain {
+  @media only screen and (min-width: sg-breakpoint()) {
+    position: relative;
+    z-index: sg-z-index(main-card);
+    flex: 1 1 auto;
+    border-radius: sg-radius(loose);
+    box-shadow: sg-shadow();
+  }
+
+  .Section {
+    padding: sg-spacing(tight) sg-spacing(tight) sg-spacing() sg-spacing(tight);
+
+    @media only screen and (min-width: sg-breakpoint()) {
+      padding: sg-spacing(loose) sg-spacing(loose) sg-spacing(loose) sg-spacing(looser);
+    }
+
+    @media only screen and (min-width: sg-breakpoint(landscape, '720p')) {
+      padding: sg-spacing(fattest) $card-max-padding-right sg-spacing(fattest)
+        $card-max-padding-left;
+    }
+  }
+}
+
+.type404 {
+  // stylelint-disable-next-line scss/at-extend-no-missing-placeholder
+  @extend .typeHome; // the one and only place this is acceptable
+  background-repeat: no-repeat;
+  background-position: right sg-spacing() bottom sg-spacing();
+  background-size: sg-breakpoint(portrait, mobile);
+
+  @media only screen and (max-width: sg-breakpoint(landscape, 'iphone6') - 1px) {
+    background-image: url('https://polaris.shopify.com/assets/images/404.png');
+  }
+
+  @media only screen and (min-width: sg-breakpoint(landscape, 'iphone6')) {
+    background-size: 50%;
+    background-position: right sg-spacing(loose) top sg-spacing(loose);
+    background-image: url('https://polaris.shopify.com/assets/images/404@2x.png');
+  }
+
+  @media only screen and (min-width: sg-breakpoint(portrait, '1080p')) {
+    background-size: 60%;
+    background-position: right sg-spacing(huge) top sg-spacing(loosest);
+  }
+}

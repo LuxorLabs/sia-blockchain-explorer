@@ -20,8 +20,7 @@ $card-max-padding-right: sg-spacing(fat);
 
 // TRY TO REMOVE THESE!!
 $card-max-width: $layout-container-width - 32rem - sg-spacing(loosest);
-$card-interior: $card-max-width - $card-max-padding-left -
-  $card-max-padding-right;
+$card-interior: $card-max-width - $card-max-padding-left - $card-max-padding-right;
 
 // Color Palette
 $color-palette-spacing: sg-spacing();
@@ -33,12 +32,9 @@ $styleguide-layout-width-data: (
   layout-container: $layout-container-width,
   layout-with-padding: $layout-container-width + (sg-spacing(fattest) * 2),
   card-home: 134.4rem,
-  page-nav:
-  (
-    base: $hamburger-width + (sg-spacing(tighter) * 2),
-    expanded: 13.3rem
-  ),
+  page-nav: (base: $hamburger-width + (sg-spacing(tighter) * 2), expanded: 13.3rem),
   side-nav: 34rem,
+  statistics-table: 80rem,
   button-min-width: 12.6rem,
   type-content: (base: 60rem, small: 40rem),
   hamburger: $hamburger-width,
@@ -56,10 +52,10 @@ $styleguide-layout-height-data: (
   page-header: (base:7.2rem, tablet: 12rem),
   page-footer: 13.2rem,
   page-nav:
-  (
-    base: $hamburger-height + (sg-spacing(tighter) * 2),
-    expanded: $page-nav-link-height * 5 + sg-spacing(looser) + sg-spacing(tightest)
-  ),
+    (
+      base: $hamburger-height + (sg-spacing(tighter) * 2),
+      expanded: $page-nav-link-height * 5 + sg-spacing(looser) + sg-spacing(tightest)
+    ),
   page-nav-link: $page-nav-link-height,
   page-nav-indicator: 0.6rem,
   side-nav-activator: 7.2rem,
@@ -77,5 +73,3 @@ $styleguide-layout-height-data: (
 /// Merge into Threads
 @include threads-update-property('layout-width', $styleguide-layout-width-data);
 @include threads-update-property('layout-height', $styleguide-layout-height-data);
-
-

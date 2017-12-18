@@ -1,0 +1,24 @@
+////
+/// TypeStandfirst
+/// @group components/TypeStandfirst/TypeStandfirst
+////
+
+@import '../TypeContainer/TypeMixins';
+
+@mixin sg-TypeStandfirst {
+  @include sg-TypeParagraph;
+  margin-bottom: 1.2em;
+  font-size: sg-font-size(standfirst);
+
+  @media only screen and (min-width: sg-breakpoint(portrait, '1080p')) {
+    font-size: sg-font-size(standfirst, desktop);
+  }
+}
+
+.TypeStandfirst {
+  @include sg-TypeStandfirst;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

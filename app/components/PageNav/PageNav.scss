@@ -56,9 +56,8 @@
     border-radius: sg-radius(loose);
     box-shadow: sg-shadow();
     background-color: sg-color(white);
-    transition: width sg-duration() sg-easing(),
-      height sg-duration() sg-easing(), opacity sg-duration(fast) sg-easing(),
-      visibility sg-duration(fast) sg-easing();
+    transition: width sg-duration() sg-easing(), height sg-duration() sg-easing(),
+      opacity sg-duration(fast) sg-easing(), visibility sg-duration(fast) sg-easing();
 
     &.isOpened {
       @include _sg-PageNavOpened;
@@ -104,8 +103,7 @@
 
   @media only screen and (min-width: sg-breakpoint()) {
     position: relative;
-    padding: sg-spacing(loosest) sg-spacing(tighter) sg-spacing(tighter)
-      sg-spacing(tighter);
+    padding: sg-spacing(loosest) sg-spacing(tighter) sg-spacing(tighter) sg-spacing(tighter);
     color: sg-color(ink, dark);
     transition: color sg-duration() sg-easing();
 
@@ -143,7 +141,7 @@
   float: right;
   width: 2.9rem;
   height: 2.9rem;
-  margin-top: 1.6em;
+  margin-top: 1.2rem;
 
   div {
     width: 100%;

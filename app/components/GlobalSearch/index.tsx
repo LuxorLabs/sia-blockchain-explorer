@@ -4,12 +4,15 @@ import { isDevelopment } from 'utilities/env'
 import TextField from '../TextField'
 import * as styles from './GlobalSearch.scss'
 import { extendObservable, observe } from 'mobx'
+import { withRouter } from 'react-router-dom'
 import store from './store'
 import { observer } from 'mobx-react'
+import Helmet from 'react-helmet'
 
 interface Props {
   showMobile?: boolean
   defaultValue?: string
+  history: any
   onClose?(): void
   onOpen?(): void
 }
@@ -96,11 +99,13 @@ class GlobalSearch extends React.Component<Props, State> {
 
     return (
       <div className={wrapperClassName} role="search" onKeyUp={this.handleKeyUp}>
+        {/* TODO Add Meta Tags */}
+        <Helmet title="Block" />
         <div className={styles.SearchInput}>
           {/* Todo: point to the ID of the currently active result on aria-activedescendant */}
           <TextField
             type="search"
-            placeholder="Search"
+            placeholder="Wallet address, txid, or blockheight"
             onFocus={this.doSearch}
             onChange={this.doSearch}
             onBlur={this.hideResults}
@@ -138,6 +143,9 @@ class GlobalSearch extends React.Component<Props, State> {
       // which moves the cursor at the beginning and end of the field
       evt.preventDefault()
     }
+    if (evt.keyCode === 13) {
+      this.searchSia(evt.target.value)
+    }
   }
 
   private getResultsBoxNode = () => {
@@ -159,7 +167,17 @@ class GlobalSearch extends React.Component<Props, State> {
     }
   }
 
-  private doSearch = () => {
+  private searchSia = (address: string) => {
+    if (this.validBlockHeight(address)) {
+      this.props.history.push(`/block/${address}`)
+    } else {
+      this.props.history.push(`/hashes/${address}`)
+    }
+  }
+
+  private validBlockHeight = input => Number.isInteger(parseInt(input, 10))
+
+  private doSearch = e => {
     const { onOpen, showMobile } = this.props
     const { showOpenKeyShortcutHint } = this.state
     const query = this.textFieldNode.value
@@ -206,4 +224,4 @@ class GlobalSearch extends React.Component<Props, State> {
   }
 }
 
-export default GlobalSearch
+export default withRouter(GlobalSearch)

@@ -1,0 +1,42 @@
+@import '../../components/LayoutContainer/variables';
+
+.Home {
+  visibility: visible; // I want the class from Webpack
+}
+
+.Stat {
+  @media only screen and (min-width: sg-breakpoint(landscape, mobile)) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+.StatBlock {
+  position: relative;
+  padding-top: sg-spacing();
+  padding-right: sg-spacing(loose);
+  flex: 1;
+  h4 {
+    font-weight: 600;
+  }
+}
+
+.StatLine {
+  display: flex;
+  justify-content: space-between;
+  padding-top: sg-spacing(tight);
+}
+
+.StatList {
+  width: 100%;
+}
+
+.StatHash {
+  margin-right: auto;
+}
+
+.StatBlockHeight {
+  font-weight: 600;
+  margin-left: auto;
+}

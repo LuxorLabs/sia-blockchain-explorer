@@ -1,10 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const {
-  CheckerPlugin,
-  TsConfigPathsPlugin
-} = require('awesome-typescript-loader')
+const { CheckerPlugin, TsConfigPathsPlugin } = require('awesome-typescript-loader')
 
 process.noDeprecation = true
 

@@ -1,0 +1,69 @@
+.StatisticsTable {
+  position: relative;
+  width: 100%;
+  table {
+    width: 100%;
+    text-align: left;
+    td {
+      font-size: sg-font-size(small);
+    }
+    th:first-child,
+    td:first-child {
+      padding-left: sg-spacing(tighter);
+    }
+  }
+  td,
+  th {
+    padding: sg-spacing(tighter);
+    background-color: sg-color(sky, lighter);
+  }
+
+  tr {
+    border-top: 1px solid sg-color(sky, base);
+    border-left: 1px solid sg-color(sky, base);
+    border-right: 1px solid sg-color(sky, base);
+    border-bottom: 1px solid sg-color(sky, base);
+  }
+
+  td:nth-child(odd) {
+    font-weight: 600;
+  }
+
+  @media screen and (max-width: sg-breakpoint(portrait, tablet)) {
+    table {
+      table-layout: fixed;
+      margin-top: sg-spacing();
+      margin-bottom: sg-spacing();
+    }
+    td {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+  @media only screen and (min-width: sg-breakpoint()) {
+    td:nth-child(odd) {
+      min-width: rem(250px);
+    }
+  }
+}
+
+.isStriped {
+  .StatisticsTableRow:nth-child(even) {
+    td {
+      background-color: sg-color(sky, base) !important;
+    }
+  }
+}
+
+.isFixed {
+  min-width: 0%;
+  table {
+    table-layout: fixed;
+  }
+  td {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

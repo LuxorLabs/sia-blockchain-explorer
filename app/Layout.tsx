@@ -7,22 +7,23 @@ import { withRouter } from 'react-router-dom'
 import CurrentSectionProvider from 'components/CurrentSectionProvider'
 import PageHeader from 'components/PageHeader'
 import PageNav from 'components/PageNav'
+import PageFooter from 'components/PageFooter'
 
 interface Props {
   location: Location
   children?: React.ReactNode
 }
 
-const PAGE_NAME = 'Your App'
+const PAGE_NAME = 'Sia Explorer'
 
 class Layout extends React.Component<Props, any> {
   public render() {
     const { children, location } = this.props
     const navItems = [
-      {
-        name: 'Item 1',
-        path: 'test'
-      }
+      // {
+      //   name: 'Item 1',
+      //   path: 'test'
+      // }
     ]
 
     return (
@@ -33,6 +34,7 @@ class Layout extends React.Component<Props, any> {
             <PageNav basePath={''} items={navItems} activePath={location.pathname} />
           </PageHeader>
           {children}
+          <PageFooter />
         </div>
       </CurrentSectionProvider>
     )

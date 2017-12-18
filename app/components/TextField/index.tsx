@@ -72,6 +72,11 @@ export default class TextField extends React.Component<Props, State> {
 
     return (
       <div className={styles.Wrapper}>
+        {type === 'search' ? (
+          <div className={styles.Icon}>
+            <Icon src={SearchIcon.id} viewBox={SearchIcon.viewBox} size="20" />
+          </div>
+        ) : null}
         <input
           type={type}
           className={className}
@@ -98,7 +103,6 @@ export default class TextField extends React.Component<Props, State> {
   }
 
   private handleRef(node) {
-    console.log('handleRef')
     this.node = node
     const { getNode } = this.props
     if (!getNode) {

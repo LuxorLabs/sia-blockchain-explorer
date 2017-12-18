@@ -43,7 +43,7 @@ p {
 }
 
 a:not([data-polaris-unstyled]) {
-  color: sg-color(blue);
+  color: sg-color(green, sia);
   text-decoration: none;
 
   &:hover,

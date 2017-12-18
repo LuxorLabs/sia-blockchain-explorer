@@ -1,0 +1,24 @@
+////
+/// 404 page
+/// @group pages/404
+////
+
+.Content {
+  min-height: 46rem;
+
+  @media only screen and (min-width: sg-breakpoint(landscape, 'iphone6')) {
+    max-width: 50%;
+    min-height: 38rem;
+  }
+
+  @media only screen and (min-width: sg-breakpoint(portrait, '1080p')) {
+    max-width: 40%;
+    min-height: 50rem;
+  }
+
+  @media only screen and (min-width: sg-breakpoint(portrait, 'imac')) {
+    min-height: 62rem;
+    padding-top: sg-spacing(loose);
+    padding-left: sg-spacing(loose);
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "hashtype": "filecontractid",
+  "block": null,
+  "blocks": null,
+  "transaction": null,
+  "transactions": [
+    {
+      "id": "eca0b58b02269ae6f8a5d4112febb79b84d9a6822a83ae96ab9d3afe325f3d90",
+      "height": 137215,
+      "parent": "0000000000000012aedd5f8b32f8d95541c19a595450c4b3fbc163261d27ab8a",
+      "rawtransaction": {
+        "siacoininputs": [
+          {
+            "parentid": "75ba30e6adcc9c0557b475b953b5f0e5224f0801d74da75c695c01638828f12c",
+            "unlockconditions": {
+              "timelock": 0,
+              "publickeys": [
+                {
+                  "algorithm": "ed25519",
+                  "key": "Y1UT5185HwbDo/WhniHtdVCWaCheGU8x9kO1BvpS+MU="
+                }
+              ],
+              "signaturesrequired": 1
+            }
+          },
+          {
+            "parentid": "48a3dd32bde7f7fbe3af2dabfeb28cd393c6589ff7641d21c4344590e1824048",
+            "unlockconditions": {
+              "timelock": 0,
+              "publickeys": [
+                {
+                  "algorithm": "ed25519",
+                  "key": "rBdZKdadww290Ye/vWrYhk13Zgr8PUnq5jiBVWVcseM="
+                }
+              ],
+              "signaturesrequired": 1
+            }
+          }
+        ],
+        "siacoinoutputs": [],
+        "filecontracts": [
+          {
+            "filesize": 0,
+            "filemerkleroot": "0000000000000000000000000000000000000000000000000000000000000000",
+            "windowstart": 138221,
+            "windowend": 138365,
+            "payout": "10000171233434166958192223",
+            "validproofoutputs": [
+              {
+                "value": "3131214539921388615819871",
+                "unlockhash":
+                  "8628354e8f2b38cf1b9abcd7521d30c63bc91af76536a469cf9b5a5a108929a05ee2f6ff4755"
+              },
+              {
+                "value": "6478950015408845831012352",
+                "unlockhash":
+                  "fdd7c0ee41bd2e9cb757a33460cba37fd59bb96057f9e806582e7de323d37c2d0f77f6cf5496"
+              }
+            ],
+            "missedproofoutputs": [
+              {
+                "value": "3131214539921388615819871",
+                "unlockhash":
+                  "8628354e8f2b38cf1b9abcd7521d30c63bc91af76536a469cf9b5a5a108929a05ee2f6ff4755"
+              },
+              {
+                "value": "6478950015408845831012352",
+                "unlockhash":
+                  "fdd7c0ee41bd2e9cb757a33460cba37fd59bb96057f9e806582e7de323d37c2d0f77f6cf5496"
+              },
+              {
+                "value": "0",
+                "unlockhash":
+                  "000000000000000000000000000000000000000000000000000000000000000089eb0d6a8a69"
+              }
+            ],
+            "unlockhash":
+              "59bf3183f18545c82ed9604484c266cfe03d86ddc4cb1e86728ee409c7cac2847e7d78cf94b0",
+            "revisionnumber": 0
+          }
+        ],
+        "filecontractrevisions": [],
+        "storageproofs": [],
+        "siafundinputs": [],
+        "siafundoutputs": [],
+        "minerfees": ["61440000000000000000000"],
+        "arbitrarydata": [],
+        "transactionsignatures": [
+          {
+            "parentid": "75ba30e6adcc9c0557b475b953b5f0e5224f0801d74da75c695c01638828f12c",
+            "publickeyindex": 0,
+            "timelock": 0,
+            "coveredfields": {
+              "wholetransaction": true,
+              "siacoininputs": [],
+              "siacoinoutputs": [],
+              "filecontracts": [],
+              "filecontractrevisions": [],
+              "storageproofs": [],
+              "siafundinputs": [],
+              "siafundoutputs": [],
+              "minerfees": [],
+              "arbitrarydata": [],
+              "transactionsignatures": []
+            },
+            "signature":
+              "5l9/yLS5ss6n0/MWZV+hJIjbNo61By26xSAxjksIcSGbb0jVEGICcBmYcMqWv6/1ocgUdc1yVmg2ImDk5cGEBg=="
+          },
+          {
+            "parentid": "48a3dd32bde7f7fbe3af2dabfeb28cd393c6589ff7641d21c4344590e1824048",
+            "publickeyindex": 0,
+            "timelock": 0,
+            "coveredfields": {
+              "wholetransaction": true,
+              "siacoininputs": [],
+              "siacoinoutputs": [],
+              "filecontracts": [],
+              "filecontractrevisions": [],
+              "storageproofs": [],
+              "siafundinputs": [],
+              "siafundoutputs": [],
+              "minerfees": [],
+              "arbitrarydata": [],
+              "transactionsignatures": [0]
+            },
+            "signature":
+              "k97bz71tVdxZQ2Kvk5/7XvZfiIi0bEAiuBjFHBcHZHOzta9RSSUWYGOoQs+M8wLK/OB2V9ZomzjsNZxiw1UEBQ=="
+          }
+        ]
+      },
+      "siacoininputoutputs": [
+        {
+          "value": "6582661218025321127179871",
+          "unlockhash":
+            "c5cec61fb142edc30cb4707d0fbf1f2eca26f3ceac4016716bab894bea8b63ef6af8cef10aca"
+        },
+        {
+          "value": "3478950015408845831012352",
+          "unlockhash":
+            "08f0f2c476138d31d56dbe2b2689370e6ea3b33aa36c855c5f7ba1fa54c0f18a5ca7c4e99fbb"
+        }
+      ],
+      "siacoinoutputids": null,
+      "filecontractids": ["9c2490a63405adf80999b21cf43d33c95f1dc4128afe56fe54f451ed478ffce0"],
+      "filecontractvalidproofoutputids": [
+        [
+          "1b576bf953f399d44e7570ef9779d3e9ed8bccdc48c32a1ace615bf2e9e4a521",
+          "69943a582aa3b189229a20da83bfc3274dd4a2006736e20409c3b4becdefb5c6"
+        ]
+      ],
+      "filecontractmissedproofoutputids": [
+        [
+          "133120ac0d8f0110bcccb3d5262e53008a6a39cae7344a20f364093d069f78d8",
+          "301c25fc1d12fe2e5d3275658e5cc63c375a08dad6232e4d93dc12671049f9c8",
+          "870f64f603db0fb57b4020bcf044821799db82385b65652cd0208f6fa1caa339"
+        ]
+      ],
+      "filecontractrevisionvalidproofoutputids": null,
+      "filecontractrevisionmissedproofoutputids": null,
+      "storageproofoutputids": null,
+      "storageproofoutputs": null,
+      "siafundinputoutputs": null,
+      "siafundoutputids": null,
+      "siafundclaimoutputids": null
+    }
+  ]
+}
