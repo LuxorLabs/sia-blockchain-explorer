@@ -86,5 +86,5 @@ if (isDev) {
     }
   })
 } else {
-  run(port)
+  run(DEFAULT_PORT)
 }
