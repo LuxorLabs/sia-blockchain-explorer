@@ -11,7 +11,7 @@
   border-radius: sg-radius(loose);
   font-size: sg-font-size();
   background-color: sg-color(white);
-  box-shadow: inset 0 0 0 0.2rem rgba(sg-color(indigo), 0),
+  box-shadow: inset 0 0 0 0.2rem rgba(sg-color(green, sia), 0),
     inset 0 0.1rem 0.2rem 0 rgba(sg-color(ink, lighter), 0.2);
   transition-property: border-color, box-shadow;
   transition-duration: sg-duration();
@@ -25,7 +25,7 @@
   &:hover,
   &:focus {
     border-color: transparent;
-    box-shadow: inset 0 0 0 0.2rem rgba(sg-color(indigo), 1),
+    box-shadow: inset 0 0 0 0.2rem rgba(sg-color(green, sia), 1),
       inset 0 0.1rem 2rem 0 rgba(sg-color(ink, lighter), 0.2);
   }
 }
