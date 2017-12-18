@@ -10,8 +10,7 @@
     "tslint": "tslint --project . --exclude build/**/* --exclude server/**/**/*",
     "tscheck": "tsc --noEmit",
     "dev": "cross-env NODE_ENV=development nodemon --watch server server",
-    "build":
-      "rimraf ./build && cross-env NODE_ENV=production webpack --config webpack/webpack.prod.babel.js --color --progress --display-error-details --display-chunks",
+    "build": "rimraf ./build && cross-env NODE_ENV=production webpack --config webpack/webpack.prod.babel.js --color --progress --display-error-details --display-chunks",
     "lint": "eslint js/**/*.js",
     "precommit": "lint-staged",
     "prepush": "npm run tslint && npm run tscheck"
@@ -91,6 +90,7 @@
     "compression": "^1.7.0",
     "detect-port": "^1.2.1",
     "express": "^4.15.4",
+    "express-sslify": "1.2.0",
     "hoist-non-react-statics": "2.3.1",
     "ip": "^1.1.4",
     "mobx": "^3.2.2",
@@ -115,6 +115,9 @@
     "whatwg-fetch": "^2.0.2"
   },
   "lint-staged": {
-    "*.{ts,tsx}": ["prettier --write", "git add"]
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
