@@ -7,7 +7,6 @@ import { extendObservable, observe } from 'mobx'
 import { withRouter } from 'react-router-dom'
 import store from './store'
 import { observer } from 'mobx-react'
-import Helmet from 'react-helmet'
 
 interface Props {
   showMobile?: boolean
@@ -99,8 +98,6 @@ class GlobalSearch extends React.Component<Props, State> {
 
     return (
       <div className={wrapperClassName} role="search" onKeyUp={this.handleKeyUp}>
-        {/* TODO Add Meta Tags */}
-        <Helmet title="Block" />
         <div className={styles.SearchInput}>
           {/* Todo: point to the ID of the currently active result on aria-activedescendant */}
           <TextField
@@ -168,14 +165,14 @@ class GlobalSearch extends React.Component<Props, State> {
   }
 
   private searchSia = (address: string) => {
-    if (this.validBlockHeight(address)) {
+    if (!this.validHash(address)) {
       this.props.history.push(`/block/${address}`)
     } else {
       this.props.history.push(`/hashes/${address}`)
     }
   }
 
-  private validBlockHeight = input => Number.isInteger(parseInt(input, 10))
+  private validHash = input => /^[a-z]+$/i.test(input)
 
   private doSearch = e => {
     const { onOpen, showMobile } = this.props
