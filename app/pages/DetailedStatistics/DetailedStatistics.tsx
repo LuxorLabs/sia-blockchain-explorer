@@ -316,11 +316,15 @@ class DetailedStatistics extends React.Component<
     const walletValue = w
       .map(t => t.siacoininputoutputs.map(x => parseInt(x.value, 10)).reduce((z, o) => z + o))
       .reduce((x, y) => x + y)
-    const transactionIds = w.map(t => t.id)
+    const transactionIds = w.map(t => (
+      <div key={t.id}>
+        <Link to={this.linkHash(t.id)}>{t.id}</Link>
+      </div>
+    ))
     return [
       {
-        title: 'Wallet Value',
-        data: walletValue
+        title: 'Total SC Transacted',
+        data: hastingsToSC(walletValue)
       },
       {
         title: 'Transactions',
