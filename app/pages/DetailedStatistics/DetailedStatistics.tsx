@@ -20,11 +20,6 @@ import { Link, withRouter } from 'react-router-dom'
 import { RowDataType } from 'components/Table/StatisticsTable'
 import * as styles from './DetailedStatistics.scss'
 
-import * as blockMock from '../../../mock/block.json'
-import * as txMock from '../../../mock/hashtx.json'
-import * as fcMock from '../../../mock/hashfile.json'
-import * as walletMock from '../../../mock/hashunlock.json'
-
 import ReactTable from 'react-table'
 import { StatisticsTable } from 'components/Table'
 
@@ -207,14 +202,14 @@ class DetailedStatistics extends React.Component<
     // Fix
     const confirmations = 12231231 - height
     const inputAddresses = rawtransaction.siacoininputs.map(i => (
-      <Link to={i.parentid} key={i.parentid}>
-        {i.parentid}
-      </Link>
+      <div key={i.parentid}>
+        <Link to={i.parentid}>{i.parentid}</Link>
+      </div>
     ))
     const outputAddresses = rawtransaction.siacoinoutputs.map(i => (
-      <Link to={i.unlockhash} key={i.unlockhash}>
-        {i.unlockhash}
-      </Link>
+      <div key={i.unlockhash}>
+        <Link to={i.unlockhash}>{i.unlockhash}</Link>
+      </div>
     ))
     const txValue = tx.siacoininputoutputs
       ? tx.siacoininputoutputs.map(io => parseInt(io.value, 10)).reduce((x, y) => x + y)
@@ -245,14 +240,14 @@ class DetailedStatistics extends React.Component<
     // Fix
     const confirmations = 12231231 - height
     const inputAddresses = rawtransaction.siacoininputs.map(i => (
-      <Link to={i.parentid} key={i.parentid}>
-        {i.parentid}
-      </Link>
+      <div key={i.parentid}>
+        <Link to={i.parentid}>{i.parentid}</Link>
+      </div>
     ))
     const outputAddresses = rawtransaction.siacoinoutputs.map(i => (
-      <Link to={i.unlockhash} key={i.unlockhash}>
-        {i.unlockhash}
-      </Link>
+      <div key={i.unlockhash}>
+        <Link to={i.unlockhash}>{i.unlockhash}</Link>
+      </div>
     ))
     const txValue = tx.siacoininputoutputs
       ? tx.siacoininputoutputs.map(io => parseInt(io.value, 10)).reduce((x, y) => x + y)

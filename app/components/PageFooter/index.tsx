@@ -12,7 +12,7 @@ export default function PageFooter() {
   return (
     <footer className={className}>
       <LayoutContainer type="footer">
-        <div className={styles.Content}>Made by Luxor.</div>
+        <div className={styles.Content}>Made by Luxor</div>
         <div className={styles.Content}>Version 0.2 </div>
       </LayoutContainer>
     </footer>
