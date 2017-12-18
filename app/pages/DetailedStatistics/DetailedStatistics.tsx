@@ -1,6 +1,7 @@
 import * as React from 'react'
 import LayoutContainer from 'components/LayoutContainer'
 import { Card as MainCard } from 'components/Card'
+import { observer, inject } from 'mobx-react'
 import TypeHeading from 'components/TypeHeading'
 import {
   Card,
@@ -23,15 +24,15 @@ import * as styles from './DetailedStatistics.scss'
 import ReactTable from 'react-table'
 import { StatisticsTable } from 'components/Table'
 
-import { fetchBlock, fetchHash } from 'lib/api'
+import { fetchBlock, fetchHash, fetchLatest } from 'lib/api'
 import { hastingsToSC } from 'lib/formatters'
 import TypeContainer from 'components/TypeContainer'
 
 export interface DetailedStatisticsStateProps {
   type: string
   block: any
-  transaction: any
-  transactions: any[]
+  transaction: any | null
+  transactions: any[] | null
   error: boolean
 }
 
@@ -39,8 +40,11 @@ export interface DetailedStatisticsProps {
   match?: any
   location?: any
   history?: any
+  main: any
 }
 
+@inject('main')
+@observer
 class DetailedStatistics extends React.Component<
   DetailedStatisticsProps,
   DetailedStatisticsStateProps
@@ -81,6 +85,11 @@ class DetailedStatistics extends React.Component<
       this.setState({
         error: true
       })
+    }
+
+    const currBlock = await fetchLatest()
+    if (currBlock.data) {
+      this.props.main.block = currBlock.data
     }
   }
 
@@ -199,8 +208,7 @@ class DetailedStatistics extends React.Component<
   public txDataMap = (tx): RowDataType[] => {
     const { rawtransaction } = tx
     const height = tx.height
-    // Fix
-    const confirmations = 12231231 - height
+    const confirmations = this.props.main.block ? this.props.main.block.height - height : 'Unknown'
     const inputAddresses = rawtransaction.siacoininputs.map(i => (
       <div key={i.parentid}>
         <Link to={i.parentid}>{i.parentid}</Link>
@@ -238,7 +246,8 @@ class DetailedStatistics extends React.Component<
     const { rawtransaction } = tx
     const height = tx.height
     // Fix
-    const confirmations = 12231231 - height
+    const confirmations = this.props.main.block ? this.props.main.block.height - height : 'Unknown'
+
     const inputAddresses = rawtransaction.siacoininputs.map(i => (
       <div key={i.parentid}>
         <Link to={i.parentid}>{i.parentid}</Link>
@@ -275,7 +284,7 @@ class DetailedStatistics extends React.Component<
     const { rawtransaction } = tx
     const height = tx.height
     // Fix
-    const confirmations = 12231231 - height
+    const confirmations = this.props.main.block ? this.props.main.block.height - height : 'Unknown'
     const inputAddresses = rawtransaction.siafundinputs.map(i => (
       <Link to={i.parentid} key={i.parentid}>
         {i.parentid}

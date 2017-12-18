@@ -10,7 +10,7 @@ import PageNav from 'components/PageNav'
 import PageFooter from 'components/PageFooter'
 
 interface Props {
-  location: Location
+  location?: Location
   children?: React.ReactNode
 }
 

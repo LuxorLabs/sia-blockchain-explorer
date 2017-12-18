@@ -5,8 +5,14 @@ import Loadable from 'react-loadable'
 import Layout from './Layout'
 import Home from 'pages/Home'
 import NoMatch from 'pages/NoMatch'
+import { observer, inject } from 'mobx-react'
+import { fetchLatest } from 'lib/api'
 
-export default class Routes extends React.Component {
+export interface RouteProps {
+  main: any
+}
+
+export default class Routes extends React.Component<RouteProps, {}> {
   public render() {
     return (
       <Layout>
