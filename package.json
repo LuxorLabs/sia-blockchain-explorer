@@ -8,6 +8,7 @@
     "postinstall": "npm rebuild node-sass && npm run build",
     "start:tunnel": "ENABLE_TUNNEL=true node server",
     "tslint": "tslint --project . --exclude build/**/* --exclude server/**/**/*",
+    "tscheck": "tsc --noEmit",
     "dev": "cross-env NODE_ENV=development nodemon --watch server server",
     "build":
       "rimraf ./build && cross-env NODE_ENV=production webpack --config webpack/webpack.prod.babel.js --color --progress --display-error-details --display-chunks",
@@ -111,8 +112,6 @@
     "react-table": "6.7.5",
     "smoothscroll-polyfill": "0.4.0",
     "styled-components": "2.2.4",
-    "tscheck": "tsc --noEmit",
-    "tslint": "tslint --project .",
     "whatwg-fetch": "^2.0.2"
   },
   "lint-staged": {
