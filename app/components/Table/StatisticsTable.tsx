@@ -23,6 +23,7 @@ export default class StatisticsTable extends React.Component<StatisticsTableProp
     )
     const TableRowClass = classNames(styles.StatisticsTableRow)
 
+    //tslint:disable-next-line
     const mappedRows = data.map(({ title, data }, i) => (
       <tr key={i} className={TableRowClass}>
         <td>{title}</td>

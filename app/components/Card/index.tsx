@@ -13,7 +13,7 @@ export interface Props {
 }
 
 export default class Card extends React.Component<Props, {}> {
-  static Section = Section
+  public static Section = Section
 
   public render() {
     const { type, children } = this.props
