@@ -5,7 +5,7 @@ const NodeCache = require('node-cache')
 const cache = new NodeCache({ stdTTL: 10, checkperiod: 120 })
 
 const luxor = axios.create({
-  baseURL: 'http://explorer.luxor.tech:6000',
+  baseURL: 'http://explorer.luxor.tech:6001',
   timeout: 15000,
   headers: {
     'User-Agent': 'Sia-Agent'
