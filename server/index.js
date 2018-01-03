@@ -13,9 +13,16 @@ const prompt = require('./react-dev-utils/prompt')
 const openBrowser = require('./react-dev-utils/openBrowser')
 const chalk = require('chalk')
 var enforce = require('express-sslify')
+var proxy = require('http-proxy-middleware')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
+const RAW_ENDPOINT = 'http://explorer.luxor.tech:6001'
+
+// New hostname+path as specified by question:
+app.use('/explorer', proxy({ target: RAW_ENDPOINT, changeOrigin: true }))
+
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 app.use('/api', myApi)
 
