@@ -27,14 +27,23 @@ const TICKER_KEY = 'Ticker'
 
 // returns curr block
 router.get('/latest', (req, res) => {
-  luxor
-    .get('/explorer')
-    .then(({ data }) => {
-      res.send(data.blocks[0])
-    })
-    .catch(err => {
-      console.log(err)
-    })
+  cache.get('LATEST', async (err, val) => {
+    if (!err) {
+      if (val === undefined) {
+        luxor
+          .get('/explorer')
+          .then(({ data }) => {
+            cache.set('LATEST', data.blocks[0])
+            res.send(data.blocks[0])
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      } else {
+        res.send(val)
+      }
+    }
+  })
 })
 
 router.get('/latestblocks', (req, res) => {
@@ -66,39 +75,66 @@ router.get('/latestblocks', (req, res) => {
 
 router.get('/blocks/:height', (req, res) => {
   const { height } = req.params
-  luxor
-    .get(`/explorer/blocks/${height}`)
-    .then(({ data }) => {
-      res.send(data)
-    })
-    .catch(err => {
-      res.status(400).send(err.response.data)
-      console.log(err)
-    })
+  cache.get(`HEIGHT${height}`, async (err, val) => {
+    if (!err) {
+      if (val === undefined) {
+        luxor
+          .get(`/explorer/blocks/${height}`)
+          .then(({ data }) => {
+            cache.set(`HEIGHT${height}`, data)
+            res.send(data)
+          })
+          .catch(err => {
+            res.status(400).send(err.response.data)
+            console.log(err)
+          })
+      } else {
+        res.send(val)
+      }
+    }
+  })
 })
 
 router.get('/hashes/:hash', (req, res) => {
   const { hash } = req.params
-  luxor
-    .get(`/explorer/hashes/${hash}`)
-    .then(({ data }) => {
-      res.send(data)
-    })
-    .catch(err => {
-      res.status(400).send(err.response.data)
-      console.log(err)
-    })
+  cache.get(`HASH${hash}`, async (err, val) => {
+    if (!err) {
+      if (val === undefined) {
+        luxor
+          .get(`/explorer/hashes/${hash}`)
+          .then(({ data }) => {
+            cache.set(`HASH${hash}`, data)
+            res.send(data)
+          })
+          .catch(err => {
+            res.status(400).send(err.response.data)
+            console.log(err)
+          })
+      } else {
+        res.send(val)
+      }
+    }
+  })
 })
 
 router.get('/pending', (req, res) => {
-  luxor
-    .get('/explorer/pending')
-    .then(({ data }) => {
-      res.send(data)
-    })
-    .catch(err => {
-      console.log(err)
-    })
+  cache.get('PENDING', async (err, val) => {
+    if (!err) {
+      if (val === undefined) {
+        luxor
+          .get('/explorer/pending')
+          .then(({ data }) => {
+            cache.set('PENDING', data)
+            res.send(data)
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      } else {
+        res.send(val)
+      }
+    }
+  })
 })
 
 router.get('/price', (req, res) => {

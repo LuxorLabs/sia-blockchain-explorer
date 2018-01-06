@@ -1,5 +1,7 @@
 export const Home: string
 export const home: string
+export const HomeAlert: string
+export const homeAlert: string
 export const Stat: string
 export const stat: string
 export const StatBlock: string

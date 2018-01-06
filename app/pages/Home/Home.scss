@@ -3,6 +3,10 @@
 .Home {
   visibility: visible; // I want the class from Webpack
 }
+.HomeAlert {
+  text-align: center;
+  padding: rem(50px);
+}
 
 .Stat {
   @media only screen and (min-width: sg-breakpoint(landscape, mobile)) {

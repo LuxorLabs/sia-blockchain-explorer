@@ -7,7 +7,13 @@ import { Link } from 'react-router-dom'
 import LayoutContainer from 'components/LayoutContainer'
 import TypeHeading from 'components/TypeHeading'
 import Card from 'components/Card'
-import { CalloutCard, DescriptionList, TextStyle, SkeletonDisplayText } from '@shopify/polaris'
+import {
+  CalloutCard,
+  DescriptionList,
+  TextStyle,
+  SkeletonDisplayText,
+  TextStyle
+} from '@shopify/polaris'
 import { fetchLatest } from 'lib/api'
 import StatList from './StatList'
 
@@ -97,18 +103,29 @@ class Home extends React.Component {
       )
     }
     return (
-      <LayoutContainer>
-        <Card type="home">
-          <Card.Section>
-            <TypeHeading level={3}>Welcome to the Sia Explorer</TypeHeading>
-            {blockheight}
-            <div className={styles.Stat}>
-              <StatList title="Latest 10 File Contracts" items={fc} />
-              <StatList key={2} title="Latest 10 Siacoin Transactions" items={sco} />
-            </div>
-          </Card.Section>
-        </Card>
-      </LayoutContainer>
+      <div>
+        <LayoutContainer>
+          <div className={styles.HomeAlert}>
+            <TextStyle>
+              Sia Explorer is currently experiencing some load issues. If you can't find your hash,
+              or are having trouble loading the block, you can try{' '}
+              <a href="https://explorer.siahub.info/" target="_blank">
+                Siahub Explorer
+              </a>
+            </TextStyle>
+          </div>
+          <Card type="home">
+            <Card.Section>
+              <TypeHeading level={3}>Welcome to the Sia Explorer</TypeHeading>
+              {blockheight}
+              <div className={styles.Stat}>
+                <StatList title="Latest 10 File Contracts" items={fc} />
+                <StatList key={2} title="Latest 10 Siacoin Transactions" items={sco} />
+              </div>
+            </Card.Section>
+          </Card>
+        </LayoutContainer>
+      </div>
     )
   }
 }
