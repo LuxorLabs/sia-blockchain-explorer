@@ -105,7 +105,7 @@ class Home extends React.Component {
     return (
       <div>
         <LayoutContainer>
-          <div className={styles.HomeAlert}>
+          {/* <div className={styles.HomeAlert}>
             <TextStyle>
               Sia Explorer is currently experiencing some load issues. If you can't find your hash,
               or are having trouble loading the block, you can try{' '}
@@ -113,7 +113,7 @@ class Home extends React.Component {
                 Siahub Explorer
               </a>
             </TextStyle>
-          </div>
+          </div> */}
           <Card type="home">
             <Card.Section>
               <TypeHeading level={3}>Welcome to the Sia Explorer</TypeHeading>
