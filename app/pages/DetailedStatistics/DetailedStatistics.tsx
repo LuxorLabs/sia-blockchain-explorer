@@ -51,7 +51,7 @@ class DetailedStatistics extends React.Component<
 > {
   public state = {
     error: false,
-    type: 'Unknown',
+    type: 'Unconfirmed',
     // TODO: create empty block typing
     block: null,
     // TODO: tx typing
@@ -61,6 +61,12 @@ class DetailedStatistics extends React.Component<
   public async componentDidMount() {
     const { location: { pathname } } = this.props
     try {
+      if (!this.props.main.block) {
+        const currBlock = await fetchLatest()
+        if (currBlock.data) {
+          this.props.main.block = currBlock.data
+        }
+      }
       if (pathname.includes('block')) {
         const { match: { params: { height } } } = this.props
         const { data } = await fetchBlock(height)
@@ -85,11 +91,6 @@ class DetailedStatistics extends React.Component<
       this.setState({
         error: true
       })
-    }
-
-    const currBlock = await fetchLatest()
-    if (currBlock.data) {
-      this.props.main.block = currBlock.data
     }
   }
 
@@ -208,7 +209,9 @@ class DetailedStatistics extends React.Component<
   public txDataMap = (tx): RowDataType[] => {
     const { rawtransaction } = tx
     const height = tx.height
-    const confirmations = this.props.main.block ? this.props.main.block.height - height : 'Unknown'
+    const confirmations = this.props.main.block
+      ? this.props.main.block.height - height
+      : 'Unconfirmed'
     const inputAddresses = rawtransaction.siacoininputs.map(i => (
       <div key={i.parentid}>
         <Link to={i.parentid}>{i.parentid}</Link>
@@ -246,7 +249,9 @@ class DetailedStatistics extends React.Component<
     const { rawtransaction } = tx
     const height = tx.height
     // Fix
-    const confirmations = this.props.main.block ? this.props.main.block.height - height : 'Unknown'
+    const confirmations = this.props.main.block
+      ? this.props.main.block.height - height
+      : 'Unconfirmed'
 
     const inputAddresses = rawtransaction.siacoininputs.map(i => (
       <div key={i.parentid}>
@@ -284,7 +289,9 @@ class DetailedStatistics extends React.Component<
     const { rawtransaction } = tx
     const height = tx.height
     // Fix
-    const confirmations = this.props.main.block ? this.props.main.block.height - height : 'Unknown'
+    const confirmations = this.props.main.block
+      ? this.props.main.block.height - height
+      : 'Unconfirmed'
     const inputAddresses = rawtransaction.siafundinputs.map(i => (
       <Link to={i.parentid} key={i.parentid}>
         {i.parentid}
