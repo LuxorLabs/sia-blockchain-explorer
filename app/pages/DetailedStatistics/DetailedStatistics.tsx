@@ -210,7 +210,7 @@ class DetailedStatistics extends React.Component<
     const { rawtransaction } = tx
     const height = tx.height
     const confirmations = this.props.main.block
-      ? this.props.main.block.height - height
+      ? this.props.main.block.height - height + 1
       : 'Unconfirmed'
     const inputAddresses = rawtransaction.siacoininputs.map(i => (
       <div key={i.parentid}>
@@ -250,7 +250,7 @@ class DetailedStatistics extends React.Component<
     const height = tx.height
     // Fix
     const confirmations = this.props.main.block
-      ? this.props.main.block.height - height
+      ? this.props.main.block.height - height + 1
       : 'Unconfirmed'
 
     const inputAddresses = rawtransaction.siacoininputs.map(i => (
@@ -290,7 +290,7 @@ class DetailedStatistics extends React.Component<
     const height = tx.height
     // Fix
     const confirmations = this.props.main.block
-      ? this.props.main.block.height - height
+      ? this.props.main.block.height - height + 1
       : 'Unconfirmed'
     const inputAddresses = rawtransaction.siafundinputs.map(i => (
       <Link to={i.parentid} key={i.parentid}>
